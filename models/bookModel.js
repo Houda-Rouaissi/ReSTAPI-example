@@ -4,7 +4,7 @@ const { Schema } = mongoose;
 
 const bookModel = new Schema(
 	{
-		isbn: { type: Number },
+		_id: { type: Number },
 		title: { type: String },
 		author: { type: String },
 		pages: { type: Number },
