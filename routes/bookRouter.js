@@ -1,3 +1,4 @@
+
 const express = require('express');
 
 function routes(Book) {
@@ -31,7 +32,20 @@ function routes(Book) {
 				}
 				return res.json(book);
 			})
-		});
+		})
+		.put((req, res) => {
+			Book.findById(req.params.bookId, (err, book) => {
+				if (err) {
+					return res.send(err);
+				}
+				book.title = req.body.title;
+				book.author = req.body.author;
+				book.pages = req.body.pages;
+				book.description = req.body.description;
+				book.save();
+				return res.json(book);
+			})
+		})
 		return bookRouter;
 }
 
