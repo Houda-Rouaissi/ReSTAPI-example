@@ -68,6 +68,14 @@ function routes(Book) {
 				return res.json(book)
 			});
 		})
+		.delete((req, res) => {
+			req.book.remove((err) => {
+				if (err) {
+					return res.setDefaultEncoding(err)
+				}
+				return res.sendStatus(204);
+			})
+		})
 
 		return bookRouter;
 }
