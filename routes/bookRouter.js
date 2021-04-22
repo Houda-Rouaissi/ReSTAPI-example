@@ -1,6 +1,6 @@
 const express = require('express');
 
-function routes() {
+function routes(Book) {
 	const bookRouter = express.Router();
 	bookRouter.route('/books')
 		.post((req, res) => {
@@ -35,4 +35,4 @@ function routes() {
 		return bookRouter;
 }
 
-modules.exports = routes;
+module.exports = routes;
